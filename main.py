@@ -4,17 +4,17 @@ from twilio.twiml.messaging_response import MessagingResponse
 import google.generativeai as genai
 from twilio.rest import Client
 from dotenv import load_dotenv  # to read K:V from .env file
-
+import uvicorn
 
 import os
 
+load_dotenv()
 GOOGLE_GENAI_API_KEY = os.getenv("GOOGLE_GENAI_API_KEY")
 TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 model = genai.GenerativeModel("gemini-1.5-flash")
 
-load_dotenv()
 app = FastAPI()
 
 # Simple in-memory store to track if a user is sending the first message or a follow-up
@@ -48,3 +48,7 @@ async def whatsapp_webhook(request: Request):
     twilio_response = MessagingResponse()
     twilio_response.message(response_text)
     return str(twilio_response)
+
+# Add this block to run the server locally
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
