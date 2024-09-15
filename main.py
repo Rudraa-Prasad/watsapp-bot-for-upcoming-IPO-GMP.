@@ -29,15 +29,17 @@ async def root():
 async def whatsapp_webhook(request: Request):
     form_data = await request.form()
     print(form_data)
+    user_query = "japanah"
     user_query = form_data.get('Body')
+    print(user_query)
     from_number = form_data.get('From')
-
+    print(user_state)
     # Check if user exists in the state tracking
     if from_number not in user_state:
         # If first message, respond with "How may I help you?"
         user_state[from_number] = "interacted"  # Mark this user as already interacted
         response_text = "Hi. I am NIVESH. A banker buddy to you. How may I help you today?"
-    elif user_query.strip().lower() == "hello" or "Hi" or "hi":
+    elif user_query.strip().lower() in ("hello", "hi", "hey"):
         response_text = "Hey, How may I help you?"
     else:
         # Subsequent queries, process with LLM
