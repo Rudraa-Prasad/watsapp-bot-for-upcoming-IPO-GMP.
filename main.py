@@ -20,6 +20,11 @@ app = FastAPI()
 # Simple in-memory store to track if a user is sending the first message or a follow-up
 user_state = {}
 
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the WhatsApp Bot API"}
+
 @app.post("/whatsapp")
 async def whatsapp_webhook(request: Request):
     form_data = await request.form()
