@@ -28,6 +28,7 @@ async def root():
 @app.post("/whatsapp")
 async def whatsapp_webhook(request: Request):
     form_data = await request.form()
+    print(form_data)
     user_query = form_data.get('Body')
     from_number = form_data.get('From')
 
@@ -47,7 +48,8 @@ async def whatsapp_webhook(request: Request):
     # Send response back to the user via WhatsApp
     twilio_response = MessagingResponse()
     twilio_response.message(response_text)
-    return str(twilio_response)
+    print(twilio_response)
+    return twilio_response
 
 # Add this block to run the server locally
 if __name__ == "__main__":
