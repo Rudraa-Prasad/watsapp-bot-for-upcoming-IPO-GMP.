@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, Form
-#import twilio
+from fastapi.responses import Response
 from twilio.twiml.messaging_response import MessagingResponse
 import google.generativeai as genai
 from twilio.rest import Client
@@ -52,8 +52,10 @@ async def whatsapp_webhook(request: Request):
     twilio_response = MessagingResponse()
     twilio_response.message(response_text)
     print(twilio_response)
-    return twilio_response
+    #return twilio_response
+    return Response(content=str(twilio_response), media_type="application/xml")
+
 
 # Add this block to run the server locally
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="0.0.0.0", port=8000)
