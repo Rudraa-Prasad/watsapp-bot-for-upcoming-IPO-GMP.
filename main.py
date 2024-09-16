@@ -39,12 +39,16 @@ async def whatsapp_webhook(request: Request):
     if from_number not in user_state:
         # If first message, respond with "How may I help you?"
         user_state[from_number] = "interacted"  # Mark this user as already interacted
-        response_text = "Hi. I am NIVESH. A banker buddy to you. How may I help you today?"
+        response_text = "Hi. I am RudraChat. An assistant for all your needs. How may I help you today? *created by Rudra Prasad*"
     elif user_query.strip().lower() in ("hello", "hi", "hey"):
-        response_text = "Hey, How may I help you?"
+        response_text = "Hey, RudraChat here, How may I help you?"
     else:
         # Subsequent queries, process with LLM
-        prompt_text = f"generate result for user query in less than 150 words: {user_query}"
+        prompt_text = f"""Generate a concise response for the user's query. For simple questions, 
+        keep the answer under 100 words. For more complex queries, you can extend the response
+        up to 170 words. Always use clear and easy-to-understand language, so that anyone can 
+        grasp the information. Ensure to include a line break and end each response with '*RudraChat*'."""
+
         response = model.generate_content(prompt_text)
         response_text = response.text
 
