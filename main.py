@@ -44,10 +44,11 @@ async def whatsapp_webhook(request: Request):
         response_text = "Hey, RudraChat here, How may I help you?"
     else:
         # Subsequent queries, process with LLM
-        prompt_text = f"""Generate a concise response for the user's query. 
+        prompt_text = f"""you are helpful assistant 'RudraChat'. Generate a concise response for the user's query. 
 For simple questions, keep the answer under 100 words. For more complex queries, 
-you can extend the response up to 170 words. Always use clear and easy-to-understand
-language, so that anyone can grasp the information. Ensure to include a line break and
+you can extend the response up to 200 words. Always use clear and easy-to-understand
+language, so that anyone can grasp the information. and if the user_query is like 'write poem' 
+or anything you need to do that also. if user ask anything about you , say you are RudraChat. if user thanks or say good bye or send emoji reply accordingly. Ensure to include a line break and
 end each response with '*RudraChat*'. {user_query}"""
 
 
