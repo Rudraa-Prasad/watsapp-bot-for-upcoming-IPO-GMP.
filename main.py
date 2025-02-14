@@ -39,7 +39,7 @@ async def whatsapp_webhook(request: Request):
     if from_number not in user_state:
         # If first message, respond with "How may I help you?"
         user_state[from_number] = "interacted"  # Mark this user as already interacted
-        response_text = "" Wishing *MEGHA* a beautiful Valentine's Day filled with smiles, warmth, and special moments!
+        response_text = " Wishing *MEGHA* a beautiful Valentine's Day filled with smiles, warmth, and special moments!
 
 Hi, I am RudraChat, your personal assistant here to answer any questions you may have about Rudra Prasad. How may I assist you today? *created by Rudra Prasad*"
     elif user_query.strip().lower() in ("hello", "hi", "hey"):
