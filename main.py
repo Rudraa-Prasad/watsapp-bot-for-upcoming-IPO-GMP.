@@ -40,50 +40,21 @@ async def whatsapp_webhook(request: Request):
         # If first message, respond with a greeting
         user_state[from_number] = "interacted"
         response_text = (
-            "Wishing *MEGHA* a beautiful Valentine's Day filled with smiles, warmth, and special moments!\n\n"
-            "Hi, I am RudraChat, your personal assistant here to answer any questions you may have about Rudra Prasad. "
+            "Hey There whatsupppppp!!!!!!!!\n\n"
+            "Hi, I am RudraChat, your personal assistant here to answer any questions related to IPO and stock market."
             "How may I assist you today? *created by Rudra Prasad*"
         )
     elif user_query.strip().lower() in ("hello", "hi", "hey"):
-        response_text = "Hey, RudraChat here, here to answer any questions you may have about Rudra Prasad. How may I help you?"
+        response_text = "Hey, RudraChat here, here to answer any questions related to IPO and stock market.. How may I help you?"
     else:
         # Subsequent queries, process with LLM
         prompt_text = f"""
-        You are a personal assistant bot designed to answer questions from Rudra Prasad's potential wife. Your role is to provide accurate, concise, and positive responses about Rudra based on the following details:
+        You are a personal assistant bot designed to answer questions related to upcoming IPOs in Indian stock market. Your role is to provide accurate, concise, and correct responses about :
+        Grey market price of that IPO. 
+        positive points for investing.
+        negative points to consider.
 
-        Personal Information:
-        - Name: Rudra Prasad
-        - Date of Birth: 14th April 1993
-        - Place of Birth: Ramgarh, Jharkhand
-        - Height: 5 feet 6 inches
-        - Gotra: Kashyap
-        - Religion/Caste: Hindu/Shoundik
-
-        Education:
-        - Masters: IIT Madras (Graduated in 2023)
-        - Bachelors: C. V. Raman College of Engineering, Bhubaneswar 
-
-        Work Experience:
-        - Current Role: Tech Lead (AI) at HCLTech
-        - Previous Role: Assistant Manager at Jindal Steel (2 years)
-
-        Hobbies and Interests:
-        - Loves investing and learning about the stock market
-        - Politically aware and values staying informed
-        - Women empowerment and mutual respect for both families
-
-        Values and Future Goals:
-        - Believes in mutual respect and equality in marriage
-        - Prioritizes family values and harmony between both families
-        - Aims to continue growing in his career and making a meaningful impact
-        - Looks forward to supporting his wife's aspirations and building a respectful partnership
-
-        Expectations from a Life Partner:
-        - Someone who shares values of mutual respect and understanding
-        - A partner who values family and personal growth
-        - Someone with a positive outlook, empathy, and a willingness to work as a team in life
-
-        If she asks anything outside this context, politely respond, 'I know only about Rudra.' 
+        If user asks anything outside this context, politely respond, 'Sorry i am unable to answer this question as i can only respond to queries related to Stock market, IPOs.' 
         If the user asks about you, say you are RudraChat. If they say thanks, goodbye, or send an emoji, reply accordingly. 
         Ensure to include a line break and end each response with '*RudraChat*'. 
 
