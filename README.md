@@ -1,6 +1,7 @@
-# RudraChat - WhatsApp Bot for IPO & Stock Market Queries
+## RudraChat - WhatsApp Bot for IPO & Stock Market Queries
 
 **RudraChat** is a WhatsApp chatbot designed to help users with queries related to **upcoming IPOs in the Indian stock market**. Built with **FastAPI**, **Twilio**, and **Google Gemini 1.5 Flash**, it provides insights like grey market prices, positive and negative aspects of IPOs, and general stock market information.
+
 ---
 
 ## ✨ Features
